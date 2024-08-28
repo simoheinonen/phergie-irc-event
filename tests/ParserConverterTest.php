@@ -12,6 +12,7 @@ namespace Phergie\Irc\Tests\Event;
 
 use Phergie\Irc\Event\ParserConverter;
 use Phergie\Irc\Event\UserEvent;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for \Phergie\Irc\Event\ParserConverter.
@@ -19,7 +20,7 @@ use Phergie\Irc\Event\UserEvent;
  * @category Phergie
  * @package Phergie\Irc\Event
  */
-class ParserConverterTest extends \PHPUnit_Framework_TestCase
+class ParserConverterTest extends TestCase
 {
     /**
      * Instance of the class under test
@@ -51,7 +52,7 @@ class ParserConverterTest extends \PHPUnit_Framework_TestCase
     /**
      * Instantiates the class under test.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->converter = new ParserConverter;
     }
@@ -214,7 +215,7 @@ class ParserConverterTest extends \PHPUnit_Framework_TestCase
         $this->checkUserEventData($data, $event);
         $this->assertSame($data['ctcp']['command'], $event->getCtcpCommand());
         $ctcpParams = $event->getCtcpParams();
-        $this->assertInternalType('array', $ctcpParams);
+        $this->assertIsArray($ctcpParams);
         $this->assertEmpty($ctcpParams);
         $this->assertSame($params, $event->getParams());
     }

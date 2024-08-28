@@ -10,7 +10,9 @@
 
 namespace Phergie\Irc\Tests\Event;
 
+use Phergie\Irc\ConnectionInterface;
 use Phergie\Irc\Event\Event;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for \Phergie\Irc\Event\Event.
@@ -18,7 +20,7 @@ use Phergie\Irc\Event\Event;
  * @category Phergie
  * @package Phergie\Irc\Event
  */
-class EventTest extends \PHPUnit_Framework_TestCase
+class EventTest  extends TestCase
 {
     /**
      * Instance of the class under test
@@ -30,7 +32,7 @@ class EventTest extends \PHPUnit_Framework_TestCase
     /**
      * Instantiates the class under test.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->event = new Event;
     }
@@ -66,7 +68,8 @@ class EventTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetConnection()
     {
-        $connection = $this->getMock('\Phergie\Irc\ConnectionInterface', array(), array(), '', false);
+        $connection = $this->getMockBuilder(ConnectionInterface::class)->getMock();
+
         $this->event->setConnection($connection);
         $this->assertSame($connection, $this->event->getConnection());
     }

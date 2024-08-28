@@ -30,7 +30,7 @@ class ServerEventTest extends EventTest
     /**
      * Instantiates the class under test.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->event = new ServerEvent;
     }

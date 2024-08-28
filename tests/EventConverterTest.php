@@ -15,6 +15,7 @@ use Phergie\Irc\Event\CtcpEvent;
 use Phergie\Irc\Event\Event;
 use Phergie\Irc\Event\EventConverter;
 use Phergie\Irc\Event\UserEvent;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for \Phergie\Irc\Event\EventConverter.
@@ -22,7 +23,7 @@ use Phergie\Irc\Event\UserEvent;
  * @category Phergie
  * @package Phergie\Irc\Event
  */
-class EventConverterTest extends \PHPUnit_Framework_TestCase
+class EventConverterTest extends TestCase
 {
     /**
      * Instance of the class under test
@@ -87,7 +88,7 @@ class EventConverterTest extends \PHPUnit_Framework_TestCase
     /**
      * Instantiates the class under test.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->converter = new EventConverter;
     }

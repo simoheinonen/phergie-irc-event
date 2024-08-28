@@ -31,7 +31,7 @@ class UserEventTest extends EventTest
     /**
      * Instantiates the class under test.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->event = new UserEvent;
     }
@@ -131,7 +131,7 @@ class UserEventTest extends EventTest
      *
      * @return array
      */
-    public function dataProviderGetSource()
+    public static function dataProviderGetSource()
     {
         $data = array();
         $data[] = array('#channel', '#channel');
@@ -145,8 +145,8 @@ class UserEventTest extends EventTest
      *
      * @param string $target
      * @param string $source
-     * @dataProvider dataProviderGetSource
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderGetSource')]
     public function testGetSource($target, $source)
     {
         $connection = Phake::mock('\Phergie\Irc\ConnectionInterface');
